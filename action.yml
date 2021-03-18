@@ -1,0 +1,15 @@
+name: 'inspec-docker-action'
+description: 'Run inspec'
+inputs:
+  path:
+    description: 'the path where the inspec profile lives'
+    required: true
+    default: '.'
+  outputs:
+    results:
+      description: results of inspec
+  runs:
+    using: 'docker'
+    image: 'chef/inspec'
+    args:
+      - ${{ inputs.path }}
